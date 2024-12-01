@@ -5,5 +5,5 @@ extends VBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	l.text = "Latest version: "+global.latest_version
-	c.text = "Current version: "+global.current_version
+	l.text = "Latest version: "+global.latest_version.split(",")[0]
+	c.text = "Current version: "+global.current_version.split(",")[0]

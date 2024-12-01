@@ -5,10 +5,15 @@ extends Control
 var current_version
 var tasker_path = OS.get_user_data_dir().split("Tasker Updater")[0]+"/Tasker/taskdata.json"
 func _ready() -> void:
+	
 	var file = FileAccess.open(tasker_path,FileAccess.READ).get_as_text()
 	var data = JSON.parse_string(file)
 	current_version = data["version"]
 	global.current_version = current_version
+	file = FileAccess.open(OS.get_user_data_dir()+"/latest.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(global.version))
+	file.close()
+	
 	
 	web.set_download_file("user://latest_version.txt")
 	web.request("https://github.com/Firepixel85/Tasker-Labs/releases/download/latest_pointer/latest_version.txt")
