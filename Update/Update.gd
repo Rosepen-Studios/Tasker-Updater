@@ -12,7 +12,7 @@ extends Control
 var os = "MAC"
 
 func _on_update_pressed() -> void:
-	var release_link:String = "https://github.com/Firepixel85/Tasker-Labs/releases/download/"+global.latest_version+"/Tasker."
+	var release_link:String = "https://github.com/Firepixel85/Tasker-Labs/releases/download/"+global.latest_version.split(",")[0]+"/Tasker."
 	print(release_link+"Mac.zip")
 	var user = OS.get_user_data_dir().split("/")[2]
 	if os == "MAC":
