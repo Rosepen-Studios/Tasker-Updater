@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxhu8dvk7awcs"]
+
+[ext_resource type="Script" path="res://Updating/updating.gd" id="1_e0rcu"]
+[ext_resource type="Texture2D" uid="uid://d05fv1eioneyd" path="res://Backgrounds/2.png" id="2_uyhb0"]
+[ext_resource type="FontFile" uid="uid://bovpht0sq47n3" path="res://Inter_18pt-Bold.ttf" id="3_0fmox"]
+[ext_resource type="FontFile" uid="uid://dkst0hnvh71l2" path="res://Inter_18pt-Medium.ttf" id="4_mgmn7"]
+
+[sub_resource type="Gradient" id="Gradient_ggikx"]
+offsets = PackedFloat32Array(0.0273973, 1)
+colors = PackedColorArray(0.117647, 0.117647, 0.117647, 1, 0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ll7p0"]
+gradient = SubResource("Gradient_ggikx")
+height = 75
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e0rcu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 226.0
+texture = ExtResource("2_uyhb0")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ll7p0")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+offset_right = 400.0
+offset_bottom = 75.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0fmox")
+theme_override_font_sizes/font_size = 24
+text = "Updating"
+
+[node name="Label2" type="Label" parent="VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+modulate = Color(0.556863, 0.556863, 0.556863, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_mgmn7")
+theme_override_font_sizes/font_size = 17
+text = "Downloading file from remote server"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5

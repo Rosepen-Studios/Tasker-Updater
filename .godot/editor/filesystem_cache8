@@ -1,21 +1,37 @@
 bdbec74c6e5bd72edee867077d70896c
-::res://::1733046508
-Background.png::CompressedTexture2D::3085185075856409506::1732718732::1733042215::1::::<><>::
-export_presets.cfg::TextFile::-1::1732988011::0::1::::<><>::
+::res://::1734636403
+Background.png::CompressedTexture2D::127274759911238794::1734633775::1734633846::1::::<><>::
+export_presets.cfg::TextFile::-1::1734635879::0::1::::<><>::
 global.gd::GDScript::-1::1733043376::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::5139081993132576534::1732718061::1733042215::1::::<><>::
 Icon_Mac.png::CompressedTexture2D::3830861426019326392::1732046276::1733042215::1::::<><>::
 Inter_18pt-Bold.ttf::FontFile::3413340720313800382::1732718441::1733042215::1::::<><>::
 Inter_18pt-Medium.ttf::FontFile::7899507943453583049::1732718433::1733042215::1::::<><>::
-::res://Latest/::1733043662
-latest.gd::GDScript::-1::1732988728::0::1::::<>Control<>::
-Latest.tscn::PackedScene::4180648748442887257::1733041661::0::1::::<><>::res://Latest/latest.gd<>uid://bj7qsu35x6h75::::res://Background.png<>res://Update/exit.gd<>res://Latest/rescan.gd<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf<>res://Latest/versions.gd
+Message Container.png::CompressedTexture2D::4916354428578501813::1734633785::1734633851::1::::<><>::
+Rounder.gdshader::Shader::-1::1734636033::0::1::::<><>::
+::res://Backgrounds/::1734633851
+1.png::CompressedTexture2D::6187470272145109759::1734632241::1734632243::1::::<><>::
+2.png::CompressedTexture2D::8976256933456771083::1734632282::1734632284::1::::<><>::
+::res://Button Styles/::1734635085
+Button  Pressed.png::CompressedTexture2D::6066651476761564861::1734634814::1734634908::1::::<><>::
+Button Hover.png::CompressedTexture2D::2777121603145635455::1734634802::1734634908::1::::<><>::
+Button.png::CompressedTexture2D::8142424564568336696::1734633834::1734634908::1::::<><>::
+Focus.tres::StyleBoxTexture::740409997533705131::1734635085::0::1::::<><>::uid://doaispwk0ln4c::::res://Button Styles/Button.png
+Hover.tres::StyleBoxTexture::7044807827426845594::1734634954::0::1::::<><>::uid://bfti103wkjdrj::::res://Button Styles/Button Hover.png
+Normal.tres::StyleBoxTexture::1331040006733191696::1734634927::0::1::::<><>::uid://doaispwk0ln4c::::res://Button Styles/Button.png
+Pressed.tres::StyleBoxTexture::7682036330765415419::1734634943::0::1::::<><>::uid://csoy4mf7ttj14::::res://Button Styles/Button  Pressed.png
+::res://Latest/::1734635750
+latest.gd::GDScript::-1::1734635440::0::1::::<>Control<>::
+Latest.tscn::PackedScene::4180648748442887257::1734635750::0::1::::<><>::res://Latest/latest.gd<>uid://b2wgxnega1lm::::res://Background.png<>res://Update/exit.gd<>res://Latest/rescan.gd<>uid://ccbrvy4ftvpu0::::res://Message Container.png<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf<>res://Rounder.gdshader<>uid://kswpd3aeygat::::res://Button Styles/Focus.tres<>uid://c7ms7q0g0ki2e::::res://Button Styles/Hover.tres<>uid://dhpiasrgjgduh::::res://Button Styles/Pressed.tres<>uid://s71bf21d2bs7::::res://Button Styles/Normal.tres
 rescan.gd::GDScript::-1::1732720440::0::1::::<>Button<>::
 versions.gd::GDScript::-1::1733043662::0::1::::<>VBoxContainer<>::
-::res://Scanning/::1733043662
-scan.gd::GDScript::-1::1733042862::0::1::::<>Control<>::
-Scanning.tscn::PackedScene::8808653081482755225::1733043662::0::1::::<><>::res://Scanning/scan.gd<>uid://bj7qsu35x6h75::::res://Background.png<>res://Update/exit.gd<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf
-::res://Update/::1733043662
+::res://Scanning/::1734635750
+scan.gd::GDScript::-1::1734635575::0::1::::<>Control<>::
+Scanning.tscn::PackedScene::8808653081482755225::1734635750::0::1::::<><>::res://Scanning/scan.gd<>uid://d05fv1eioneyd::::res://Backgrounds/2.png<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf
+::res://Update/::1734635750
 exit.gd::GDScript::-1::1732719045::0::1::::<>Button<>::
-Update.gd::GDScript::-1::1732989475::0::1::::<>Control<>::
-Update.tscn::PackedScene::6914799292240041574::1733043662::0::1::::<><>::res://Update/Update.gd<>uid://bj7qsu35x6h75::::res://Background.png<>res://Update/exit.gd<>res://Latest/versions.gd<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf
+Update.gd::GDScript::-1::1734635002::0::1::::<>Control<>::
+Update.tscn::PackedScene::6914799292240041574::1734635750::0::1::::<><>::res://Update/Update.gd<>uid://b2wgxnega1lm::::res://Background.png<>res://Update/exit.gd<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf<>uid://ccbrvy4ftvpu0::::res://Message Container.png<>res://Rounder.gdshader<>uid://kswpd3aeygat::::res://Button Styles/Focus.tres<>uid://c7ms7q0g0ki2e::::res://Button Styles/Hover.tres<>uid://dhpiasrgjgduh::::res://Button Styles/Pressed.tres<>uid://s71bf21d2bs7::::res://Button Styles/Normal.tres
+::res://Updating/::1734636032
+updating.gd::GDScript::-1::1734636032::0::1::::<>Control<>::
+Updating.tscn::PackedScene::4016488193208540846::1734635750::0::1::::<><>::res://Updating/updating.gd<>uid://d05fv1eioneyd::::res://Backgrounds/2.png<>uid://bovpht0sq47n3::::res://Inter_18pt-Bold.ttf<>uid://dkst0hnvh71l2::::res://Inter_18pt-Medium.ttf

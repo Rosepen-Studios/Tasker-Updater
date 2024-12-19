@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxq8h2cc0t43f"]
+[gd_scene load_steps=7 format=3 uid="uid://dxq8h2cc0t43f"]
 
 [ext_resource type="Script" path="res://Scanning/scan.gd" id="1_8ajoy"]
-[ext_resource type="Texture2D" uid="uid://bj7qsu35x6h75" path="res://Background.png" id="2_wqtcd"]
-[ext_resource type="Script" path="res://Update/exit.gd" id="3_vevc2"]
+[ext_resource type="Texture2D" uid="uid://d05fv1eioneyd" path="res://Backgrounds/2.png" id="2_cra35"]
 [ext_resource type="FontFile" uid="uid://bovpht0sq47n3" path="res://Inter_18pt-Bold.ttf" id="4_l0u2p"]
 [ext_resource type="FontFile" uid="uid://dkst0hnvh71l2" path="res://Inter_18pt-Medium.ttf" id="5_u6a2s"]
+
+[sub_resource type="Gradient" id="Gradient_b3bt0"]
+colors = PackedColorArray(0.117647, 0.117647, 0.117647, 1, 0.117647, 0.117647, 0.117647, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6akdt"]
+gradient = SubResource("Gradient_b3bt0")
+height = 75
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,95 +24,52 @@ script = ExtResource("1_8ajoy")
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 400.0
-offset_bottom = 300.0
-texture = ExtResource("2_wqtcd")
-expand_mode = 2
+offset_bottom = 226.0
+texture = ExtResource("2_cra35")
+stretch_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 34.31)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/separation = 24
 alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_6akdt")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/Control"]
-layout_mode = 2
-offset_right = 110.0
-offset_bottom = 31.0
-size_flags_horizontal = 0
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
 
-[node name="Rescan" type="Button" parent="MarginContainer/VBoxContainer2/Control/HBoxContainer"]
-layout_mode = 2
-text = "Scan Again"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/Control"]
-layout_mode = 2
-offset_left = 287.0
-offset_right = 352.0
-offset_bottom = 31.0
-size_flags_horizontal = 8
-alignment = 2
-
-[node name="Update" type="Button" parent="MarginContainer/VBoxContainer2/Control/HBoxContainer2"]
-layout_mode = 2
-text = "Exit"
-script = ExtResource("3_vevc2")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TextureRect/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 24
+theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TextureRect/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_l0u2p")
 theme_override_font_sizes/font_size = 24
 text = "Scanning"
-horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
-modulate = Color(0.858218, 0.858218, 0.858218, 1)
+[node name="Label2" type="Label" parent="VBoxContainer/TextureRect/MarginContainer2/VBoxContainer"]
+modulate = Color(0.556863, 0.556863, 0.556863, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_u6a2s")
 theme_override_font_sizes/font_size = 17
 text = "Getting latest version from remote server"
-horizontal_alignment = 1
 autowrap_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 6
-
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-modulate = Color(0.68101, 0.68101, 0.68101, 1)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_u6a2s")
-theme_override_font_sizes/font_size = 16
-text = "Current version: 1.0_obd1"
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-modulate = Color(0.68101, 0.68101, 0.68101, 1)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("5_u6a2s")
-theme_override_font_sizes/font_size = 16
-text = "Latest version: 1.0_obd1"
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]

@@ -1,11 +1,52 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5rty7uhme7iw"]
+[gd_scene load_steps=14 format=3 uid="uid://c5rty7uhme7iw"]
 
 [ext_resource type="Script" path="res://Update/Update.gd" id="1_halgp"]
-[ext_resource type="Texture2D" uid="uid://bj7qsu35x6h75" path="res://Background.png" id="1_on5pe"]
+[ext_resource type="Texture2D" uid="uid://b2wgxnega1lm" path="res://Background.png" id="1_on5pe"]
 [ext_resource type="Script" path="res://Update/exit.gd" id="2_vgrcp"]
-[ext_resource type="Script" path="res://Latest/versions.gd" id="3_7vpsc"]
 [ext_resource type="FontFile" uid="uid://bovpht0sq47n3" path="res://Inter_18pt-Bold.ttf" id="3_e74hw"]
 [ext_resource type="FontFile" uid="uid://dkst0hnvh71l2" path="res://Inter_18pt-Medium.ttf" id="4_44vas"]
+[ext_resource type="Texture2D" uid="uid://ccbrvy4ftvpu0" path="res://Message Container.png" id="7_egw86"]
+[ext_resource type="Shader" path="res://Rounder.gdshader" id="8_76sj7"]
+[ext_resource type="StyleBox" uid="uid://kswpd3aeygat" path="res://Button Styles/Focus.tres" id="9_dpjmr"]
+[ext_resource type="StyleBox" uid="uid://c7ms7q0g0ki2e" path="res://Button Styles/Hover.tres" id="9_ndxvc"]
+[ext_resource type="StyleBox" uid="uid://dhpiasrgjgduh" path="res://Button Styles/Pressed.tres" id="10_segbc"]
+[ext_resource type="StyleBox" uid="uid://s71bf21d2bs7" path="res://Button Styles/Normal.tres" id="11_nf2st"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nr7td"]
+shader = ExtResource("8_76sj7")
+shader_parameter/radius_scale = 0.2
+shader_parameter/rounded_corner_top_left = true
+shader_parameter/rounded_corner_top_right = true
+shader_parameter/rounded_corner_bottom_left = true
+shader_parameter/rounded_corner_bottom_right = true
+shader_parameter/width = 116.0
+shader_parameter/height = 34.0
+shader_parameter/opacity = 1.0
+shader_parameter/isInRadians = false
+shader_parameter/xRadians = null
+shader_parameter/yRadians = null
+shader_parameter/zRadians = null
+shader_parameter/xDegrees = null
+shader_parameter/yDegrees = null
+shader_parameter/zDegrees = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44df6"]
+shader = ExtResource("8_76sj7")
+shader_parameter/radius_scale = 0.2
+shader_parameter/rounded_corner_top_left = true
+shader_parameter/rounded_corner_top_right = true
+shader_parameter/rounded_corner_bottom_left = true
+shader_parameter/rounded_corner_bottom_right = true
+shader_parameter/width = 71.0
+shader_parameter/height = 34.0
+shader_parameter/opacity = 1.0
+shader_parameter/isInRadians = false
+shader_parameter/xRadians = null
+shader_parameter/yRadians = null
+shader_parameter/zRadians = null
+shader_parameter/xDegrees = null
+shader_parameter/yDegrees = null
+shader_parameter/zDegrees = null
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -23,94 +64,105 @@ offset_bottom = 300.0
 texture = ExtResource("1_on5pe")
 expand_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.009
+offset_right = 396.4
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_egw86")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 34.31)
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/separation = 24
-alignment = 2
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/Control"]
-layout_mode = 2
-offset_right = 110.0
-offset_bottom = 31.0
-size_flags_horizontal = 0
-
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer2/Control/HBoxContainer"]
-layout_mode = 2
-text = "Update Later"
-script = ExtResource("2_vgrcp")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/Control"]
-layout_mode = 2
-offset_left = 287.0
-offset_right = 352.0
-offset_bottom = 31.0
-size_flags_horizontal = 8
-alignment = 2
-
-[node name="Update" type="Button" parent="MarginContainer/VBoxContainer2/Control/HBoxContainer2"]
-layout_mode = 2
-text = "Update"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/separation = 24
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_e74hw")
 theme_override_font_sizes/font_size = 24
 text = "Update Tasker"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
-modulate = Color(0.858218, 0.858218, 0.858218, 1)
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+modulate = Color(0.556863, 0.556863, 0.556863, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_44vas")
 theme_override_font_sizes/font_size = 17
-text = "A new version of Tasker is available! Press \"Update\" to update now."
+text = "A new version of Tasker is available, click “Update” to install version 1.0_obd2."
 horizontal_alignment = 1
-autowrap_mode = 2
+autowrap_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 6
-script = ExtResource("3_7vpsc")
+alignment = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-modulate = Color(0.68101, 0.68101, 0.68101, 1)
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer2/Control"]
+layout_mode = 2
+offset_top = -38.0
+offset_right = 116.0
+offset_bottom = -4.0
+size_flags_horizontal = 0
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer2/Control/HBoxContainer"]
+material = SubResource("ShaderMaterial_nr7td")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_44vas")
-theme_override_font_sizes/font_size = 16
-text = "Current version: 1.0_obd1"
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = ExtResource("9_dpjmr")
+theme_override_styles/hover = ExtResource("9_ndxvc")
+theme_override_styles/pressed = ExtResource("10_segbc")
+theme_override_styles/normal = ExtResource("11_nf2st")
+text = "Update Later"
+script = ExtResource("2_vgrcp")
 
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-modulate = Color(0.68101, 0.68101, 0.68101, 1)
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer2/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -38.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer2/Control/HBoxContainer2"]
+material = SubResource("ShaderMaterial_44df6")
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_44vas")
-theme_override_font_sizes/font_size = 16
-text = "Latest version: 1.0_obd2"
+theme_override_font_sizes/font_size = 17
+theme_override_styles/focus = ExtResource("9_dpjmr")
+theme_override_styles/hover = ExtResource("9_ndxvc")
+theme_override_styles/pressed = ExtResource("10_segbc")
+theme_override_styles/normal = ExtResource("11_nf2st")
+text = "Update"
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/Control/HBoxContainer2/Update" to="." method="_on_update_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureRect/MarginContainer/VBoxContainer2/Control/HBoxContainer2/Button" to="." method="_on_update_pressed"]

@@ -1,3 +1,10 @@
 res://Scanning/Scanning.tscn
+res://Rounder.gdshader
+res://Button Styles/Focus.tres
+res://Button Styles/Hover.tres
+res://Button Styles/Pressed.tres
+res://Button Styles/Normal.tres
+res://global.gd
 res://Update/Update.tscn
-res://Update/Update.gd
+res://Latest/Latest.tscn
+res://Updating/Updating.tscn
